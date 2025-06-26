@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask your question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+    <form action="/Answer" method="POST" enctype="multipart/form-data">
+        <div class="fluid-container body">
+            <div class="Heading">
+                <h1>Welcome!</h1>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label my-2 drop-zone" id="form-label" style="cursor: pointer;">
+                    <input accept="application/pdf" type="file" id="formFile" name="file" hidden>
+                    <div id="file-name">
+                        <p>Drag and drop your PDF file or Click here to upload</p>
+                    </div>
+                </label>
+            </div>
+            <div class="mb-3 ">
+                <textarea name="query" class="form-control" rows="3" cols="75" placeholder="Enter Your Question Here!" style="text-align: center;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Submit</button>
+            <div class="my-5">
+                <textarea name="response" class="form-control" rows="3" cols="100" placeholder="Response" style="text-align: center;" placeholder="Hello">{{response}}</textarea>
+            </div>
+        </div>
+    </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="../static/javascript/script.js"></script>
+</body>
+</html>

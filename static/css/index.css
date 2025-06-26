@@ -1,0 +1,34 @@
+.body{
+    width:100%;
+    height:100vh;
+    background: linear-gradient(rgb(255, 91, 91),rgb(255, 175, 188));
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Heading{
+    text-align: center;
+}
+.form-label{
+    width:50vw;
+    height:10vh;
+    background:white;
+    text-align: center;
+    border-radius: 20px;
+}
+.file-name{
+    width:100%;
+    height:100%;
+}
+.drop-zone{
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+.drop-zone.highlight {
+    background-color: #f0f8ff;
+    border-color: hsl(237, 100%, 58%);
+};
