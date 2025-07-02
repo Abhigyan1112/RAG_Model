@@ -15,7 +15,7 @@
             <div class="mb-3">
                 <label for="formFile" class="form-label my-2 drop-zone" id="form-label" style="cursor: pointer;">
                     <input accept="application/pdf" type="file" id="formFile" name="file" hidden>
-                    <div id="file-name">
+                    <div id="file-name" name="file-name">
                         <p>Drag and drop your PDF file or Click here to upload</p>
                     </div>
                 </label>
@@ -25,7 +25,7 @@
             </div>
             <button type="submit" class="btn btn-danger">Submit</button>
             <div class="my-5">
-                <textarea name="response" class="form-control" rows="3" cols="100" placeholder="Response" style="text-align: center;" placeholder="Hello">{{response}}</textarea>
+                <textarea name="response" class="form-control" rows="14" cols="100" placeholder="You will get your answers here" style="text-align: center;" placeholder="Hello">{{response}}</textarea>
             </div>
         </div>
     </form>
