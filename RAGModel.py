@@ -1,3 +1,6 @@
+api_key = os.environ.get("api_key")
+if not api_key:
+    raise RuntimeError("GROQ_API_KEY not set in environment!")
 
 import requests
 from flask import Flask, request, jsonify, render_template, url_for, redirect
