@@ -1,7 +1,9 @@
-FROM python:3.11-slim
-WORKDIR /RAGModel
+# =================== STAGE 1: Build ====================
+FROM python:3.11-slim as builder
 
-# Install system dependencies for Rust and package builds
+WORKDIR /app
+
+# Install build deps
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
@@ -11,11 +13,19 @@ RUN apt-get update && apt-get install -y \
     rustc \
     && rm -rf /var/lib/apt/lists/*
 
-COPY . /RAGModel
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install --user -r requirements.txt
 
-# Upgrade pip and install Python dependencies
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+# =================== STAGE 2: Run ====================
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy installed packages from builder
+COPY --from=builder /root/.local /root/.local
+ENV PATH=/root/.local/bin:$PATH
+
+COPY . .
 
 EXPOSE 8000
-
 CMD ["python", "./RAGModel.py"]
