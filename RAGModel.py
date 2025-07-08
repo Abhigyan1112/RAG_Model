@@ -82,7 +82,7 @@ def answer():
 
     headers={
         "Content-Type":"application/json",
-        "Authorization":"Bearer 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"
+        "Authorization":f"Bearer {api_key}"
     }
 
     data = {
