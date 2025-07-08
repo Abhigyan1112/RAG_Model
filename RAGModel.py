@@ -21,6 +21,9 @@ app.secret_key = 'aditi18'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///RAG.db'
 db=SQLAlchemy(app)
 
+model = SentenceTransformer("all-MiniLM-L6-v2")
+client=chromadb.Client()
+
 class FILE(db.Model):
     sno = db.Column(db.Integer,primary_key=True,autoincrement=True)
     file = db.Column(db.LargeBinary,nullable=False)
@@ -57,8 +60,6 @@ def answer():
     file_stream=BytesIO(file)
     chunks = extract_chunks_from_pdf(file_stream)
 
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-    client=chromadb.Client()
     try:
         client.delete_collection(name="abcd")
     except Exception as e:
