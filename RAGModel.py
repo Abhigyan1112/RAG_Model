@@ -9,6 +9,7 @@ from chromadb.config import Settings
 import numpy as np
 import json
 from io import BytesIO
+import os
 from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
@@ -124,5 +125,6 @@ def extract_chunks_from_pdf(file,chunk_size=500):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",debug=True,port=8000)
+    port=int(os.environ.get("PORT": 8000))
+    app.run(host="0.0.0.0",port=port)
 
