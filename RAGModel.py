@@ -12,6 +12,7 @@ from io import BytesIO
 from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
+api_key="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"
 app.secret_key = 'aditi18'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///RAG.db'
 db=SQLAlchemy(app)
