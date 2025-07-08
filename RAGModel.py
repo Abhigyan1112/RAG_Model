@@ -82,7 +82,7 @@ def answer():
 
     headers={
         "Content-Type":"application/json",
-        "Authorization":"Bearer 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"
+        "Authorization":"Bearer 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"
     }
 
     data = {
@@ -99,6 +99,7 @@ def answer():
         full_response=response.json()["choices"][0]["message"]["content"]
     else:
         raise Exception(f"Failed to generate response: {response.status_code}")
+        print("Response text:", response.text)
 
     # full_response=full_response.strip()
     return redirect(url_for('main',full_response=full_response))
@@ -123,5 +124,5 @@ def extract_chunks_from_pdf(file,chunk_size=500):
 
 
 if __name__ == "__main__":
-    app.run(debug=True,port=8000)
+    app.run(host="0.0.0.0",debug=True,port=8000)
 
